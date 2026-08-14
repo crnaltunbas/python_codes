@@ -24,9 +24,7 @@ toplam = 0
 for i in range(11):
     print(i)
     toplam =toplam + i
-    print("toplam = " + toplam)
-
-
+    print("Toplam: ",toplam)
 
 # ============================================================
 # SORU 3 (WHILE)
@@ -35,6 +33,10 @@ for i in range(11):
 # Kullanıcı "q" yazarsa döngü bitsin ve "Çıkış yapıldı" yazsın.
 # ============================================================
 
+#######ÇÖZÜMMM
+while giris != "q":
+    print("Lütfen giriş yapın...")
+elif giris
 # ============================================================
 # SORU 4 (NESTED)
 # 1'den 20'ye kadar sayıları dolaşın.
