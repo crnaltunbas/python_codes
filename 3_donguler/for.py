@@ -61,3 +61,4 @@ kelime = "ucanble"
 
 for harf in kelime:
     print(harf)
+    
