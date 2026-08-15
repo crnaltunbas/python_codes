@@ -20,11 +20,11 @@
 # ============================================================
 
 ######ÇÖZÜM
-toplam = 0
-for i in range(11):
-    print(i)
-    toplam =toplam + i
-    print("Toplam: ",toplam)
+# toplam = 0
+# for i in range(11):
+#     print(i)
+#     toplam =toplam + i
+#     print("Toplam: ",toplam)
 
 # ============================================================
 # SORU 3 (WHILE)
@@ -34,9 +34,15 @@ for i in range(11):
 # ============================================================
 
 #######ÇÖZÜMMM
+giris = ""
+
 while giris != "q":
-    print("Lütfen giriş yapın...")
-elif giris
+    giris = input("Bir şey yazın: ")
+    if giris != "q":
+     print(f"Girdiniz...")
+
+print("Çıkış yapıldı...")
+    
 # ============================================================
 # SORU 4 (NESTED)
 # 1'den 20'ye kadar sayıları dolaşın.
@@ -45,3 +51,19 @@ elif giris
 # Örnek çıktı: 12 -> Çift - Büyük
 # ============================================================
 
+for i in range(1,21):
+   if i % 2 ==0:
+      if i > 10:
+       print("Çift - Büyük")
+      elif i == 10:
+       print("Çift - Küçük/Eşit")
+      else:
+        print("Çift - Küçük")
+else:
+      if i > 10:
+       print("Tek - Büyük")
+      elif i == 10:
+       print("Tek - Küçük/Eşit")
+      else:
+       print("Tek - Küçük")
+print("işlem tamamlandi")
