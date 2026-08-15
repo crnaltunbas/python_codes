@@ -34,14 +34,14 @@
 # ============================================================
 
 #######ÇÖZÜMMM
-giris = ""
+# giris = ""
 
-while giris != "q":
-    giris = input("Bir şey yazın: ")
-    if giris != "q":
-     print(f"Girdiniz...")
+# while giris != "q":
+#     giris = input("Bir şey yazın: ")
+#     if giris != "q":
+#      print(f"Girdiniz...")
 
-print("Çıkış yapıldı...")
+# print("Çıkış yapıldı...")
     
 # ============================================================
 # SORU 4 (NESTED)
@@ -51,19 +51,41 @@ print("Çıkış yapıldı...")
 # Örnek çıktı: 12 -> Çift - Büyük
 # ============================================================
 
-for i in range(1,21):
-   if i % 2 ==0:
-      if i > 10:
-       print("Çift - Büyük")
-      elif i == 10:
-       print("Çift - Küçük/Eşit")
-      else:
-        print("Çift - Küçük")
-else:
-      if i > 10:
-       print("Tek - Büyük")
-      elif i == 10:
-       print("Tek - Küçük/Eşit")
-      else:
-       print("Tek - Küçük")
-print("işlem tamamlandi")
+# Benim çözümüm
+
+# for i in range(1,21):
+#    if i % 2 ==0:
+#       if i > 10:
+#        print("Çift - Büyük")
+#       elif i == 10:
+#        print("Çift - Küçük/Eşit")
+#       else:
+#         print("Çift - Küçük")
+# else:
+#       if i > 10:
+#        print("Tek - Büyük")
+#       elif i == 10:
+#        print("Tek - Küçük/Eşit")
+#       else:
+#        print("Tek - Küçük")
+# print("işlem tamamlandi")
+
+# Hocanın çözümü 
+# for i in range(1, 21):
+#     # İlk kontrol: çift mi tek mi?
+#     if i % 2 == 0:
+#         tur = "Çift"
+#     else:
+#         tur = "Tek"
+
+#     # İkinci kontrol: 10'dan büyük mü?
+#     if i > 10:
+#         boyut = "Büyük"
+#     else:
+#         boyut = "Küçük/Eşit"
+
+#     print(f"{i} -> {tur} - {boyut}")
+
+# print("-" * 50)
+# print("ÖDEV TAMAMLANDI")
+
