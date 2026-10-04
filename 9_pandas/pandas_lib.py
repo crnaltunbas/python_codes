@@ -434,3 +434,76 @@ Ankara    5500.0  6000  5000
 İstanbul  5750.0  7000  4500
 İzmir     8000.0  8000  8000
 """
+"""
+temel pandas fonksiyonları
+"""
+
+# örnek dataframe oluşturalım
+veri = {
+    "isim": ["ali", "ayse", "mehmet", "zeynep", "ahmet"],
+    "yas": [25, 30, 28, 35, 22],
+    "sehir": ["Ankara", "İstanbul", "Ankara", "İzmir", "İstanbul"],
+    "maas": [5000, 7000, 6000, 8000, 4500]
+}
+
+df = pd.DataFrame(veri)
+print(df)
+"""
+     isim  yas     sehir  maas
+0     ali   25    Ankara  5000
+1    ayse   30  İstanbul  7000
+2  mehmet   28    Ankara  6000
+3  zeynep   35     İzmir  8000
+4   ahmet   22  İstanbul  4500
+"""
+# head fonksiyonu ile ilk 5 satırı görelim
+print(df.head())
+
+# tail ile son satırları görme
+print(df.tail(3))
+
+# info()
+print(df.info())
+"""
+<class 'pandas.DataFrame'>
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 4 columns):
+ #   Column  Non-Null Count  Dtype
+---  ------  --------------  -----
+ 0   isim    5 non-null      str
+ 1   yas     5 non-null      int64
+ 2   sehir   5 non-null      str
+ 3   maas    5 non-null      int64
+dtypes: int64(2), str(2)
+memory usage: 292.0 bytes
+"""
+
+# sayısal sütunların temel istatistiklerini görmek için describe()
+print(df.describe())
+"""
+             yas         maas
+count   5.000000     5.000000
+mean   28.000000  6100.000000
+std     4.949747  1431.782106
+min    22.000000  4500.000000
+25%    25.000000  5000.000000
+50%    28.000000  6000.000000
+75%    30.000000  7000.000000
+max    35.000000  8000.000000
+"""
+
+# bir sütunda ki değerlerin kaç kez tekrar ettiğini görmek için value_counts()
+print(df["sehir"].value_counts())
+"""
+sehir
+Ankara      2
+İstanbul    2
+İzmir       1
+Name: count, dtype: int64
+"""
+
+# bir sütunda ki benzersiz değerleri görmek için unique fonksiyonunu kullanırız
+print(df["sehir"].unique()) # ['Ankara', 'İstanbul', 'İzmir']
+
+# bir sütunda kaç farklı değer olduğunu görmek için nunique
+print(df["sehir"].nunique()) # 3
