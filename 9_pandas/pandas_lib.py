@@ -331,3 +331,106 @@ print(df)
 # index değerlerini yeniden düzenleme
 df = df.reset_index(drop = True)
 print(df)
+
+"""
+Veri sıralama ve gruplama
+"""
+
+# örnek data frame oluştur
+veri = {
+    "isim": ["ali", "ayse", "mehmet", "zeynep", "ahmet"],
+    "sehir": ["Ankara", "İstanbul", "Ankara", "İzmir", "İstanbul"],
+    "maas": [5000, 7000, 6000, 8000, 4500]
+}
+
+df = pd.DataFrame(veri)
+print(df)
+"""
+     isim     sehir  maas
+0     ali    Ankara  5000
+1    ayse  İstanbul  7000
+2  mehmet    Ankara  6000
+3  zeynep     İzmir  8000
+4   ahmet  İstanbul  4500
+"""
+# veri sıralama
+df_sirali = df.sort_values("maas")
+print(df_sirali)
+
+"""
+     isim     sehir  maas
+4   ahmet  İstanbul  4500
+0     ali    Ankara  5000
+2  mehmet    Ankara  6000
+1    ayse  İstanbul  7000
+3  zeynep     İzmir  8000
+"""
+
+# azalan sıralama
+df_sirali = df.sort_values("maas", ascending=False)
+print(df_sirali)
+"""
+     isim     sehir  maas
+3  zeynep     İzmir  8000
+1    ayse  İstanbul  7000
+2  mehmet    Ankara  6000
+0     ali    Ankara  5000
+4   ahmet  İstanbul  4500
+"""
+
+# birden fazla sütuna göre sıralama
+df_sirali = df.sort_values(["sehir", "maas"])
+print(df_sirali)
+"""
+     isim     sehir  maas
+0     ali    Ankara  5000
+2  mehmet    Ankara  6000
+4   ahmet  İstanbul  4500
+1    ayse  İstanbul  7000
+3  zeynep     İzmir  8000
+"""
+
+# veri gruplama: groupby
+# şehir bazında gruplama
+gruplar = df.groupby("sehir")
+print(gruplar) # <pandas.api.typing.DataFrameGroupBy object at 0x000001DBF8751160>
+
+# grupların ortalama maaşı
+sonuc = df.groupby("sehir")["maas"].mean() # şehir bazında ortalama maaş hesaplama
+print(sonuc)
+"""
+Ankara      5500.0
+İstanbul    5750.0
+İzmir       8000.0
+"""
+
+# grupların toplam maaşı
+sonuc = df.groupby("sehir")["maas"].sum()
+print(sonuc)
+"""
+sehir
+Ankara      11000
+İstanbul    11500
+İzmir        8000
+"""
+
+# grupların kaç kişi olduğunu bulalım
+sonuc = df.groupby("sehir")["isim"].count()
+print(sonuc)
+"""
+sehir
+Ankara      2
+İstanbul    2
+İzmir       1
+"""
+
+# birden fazla işlem yapma
+sonuc = df.groupby("sehir")["maas"].agg(["mean", "max", "min"])
+print(sonuc)
+"""
+            mean   max   min
+sehir
+Ankara    5500.0  6000  5000
+İstanbul  5750.0  7000  4500
+İzmir     8000.0  8000  8000
+"""
