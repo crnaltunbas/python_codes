@@ -190,17 +190,33 @@ Dosya okuma ve yazma
 ## dosya okuma için openpyxl paketi kurulmalı 
 
 # csv (comma separated values) dosyası okuma
-df = pd.read_csv("veri.csv")
+df = pd.read_csv("9_pandas/veri.csv")
 print(df)
 
 # excel okuma
-# df = pd.read_excel("veri_excel.xlsx")
-# print(df)
-# """
-#      isim  yas  not
-# 0    kaan   35   95
-# 1     can   25   90
-# 2  yılmaz   30   85
-# """
+df = pd.read_excel("9_pandas/veri_excel.xlsx")
+print(df)
+"""
+     isim  yas  not
+0    kaan   35   95
+1     can   25   90
+2  yılmaz   30   85
+"""
+
+# csv dosyası yazma
+veri = {
+    "isim": ["ali", "ayse", "mehmet"],
+    "yas": [25, 30, 35]
+}
+
+df = pd.DataFrame(veri)
+# df.to_csv("veri_output.csv", index=False)
+
+# excel dosyası yazma
+df.to_excel("veri_output.xlsx", index=False)
+
+"""
+Veri seçme ve filtreleme
+"""
 
 
