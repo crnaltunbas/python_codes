@@ -187,6 +187,20 @@ memory usage: 204.0 bytes
 """
 Dosya okuma ve yazma
 """
+## dosya okuma için openpyxl paketi kurulmalı 
 
+# csv (comma separated values) dosyası okuma
+df = pd.read_csv("veri.csv")
+print(df)
+
+# excel okuma
+# df = pd.read_excel("veri_excel.xlsx")
+# print(df)
+# """
+#      isim  yas  not
+# 0    kaan   35   95
+# 1     can   25   90
+# 2  yılmaz   30   85
+# """
 
 
