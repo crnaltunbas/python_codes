@@ -219,4 +219,115 @@ df.to_excel("veri_output.xlsx", index=False)
 Veri seçme ve filtreleme
 """
 
+veri = {
+    "isim": ["ali", "ayse", "mehmet", "zeynep", "ahmet"],
+    "yas":  [25, 30, 28, 35, 22],
+    "sehir": ["Ankara", "İstanbul", "İzmir", "Ankara", "Bursa"],
+    "maas": [5000, 7000, 6000, 8000, 4500] 
+}
+df = pd.DataFrame(veri)
+print(df)
 
+# sütun seçme
+print(df["isim"])
+
+# birden fazla sütun seçme
+print(df[["isim", "maas"]])
+
+# satır seçme: iloc
+print(df.iloc[0])
+"""
+isim        ali
+yas          25
+sehir    Ankara
+maas       5000
+"""
+
+# birden fazla satır
+print(df.iloc[0:3])
+
+# satır seçme: loc
+# indekslere göre seçmeyi sağlar yani etiketine göre 
+
+print(df.loc[2])
+"""
+isim     mehmet
+yas          28
+sehir     İzmir
+maas       6000
+"""
+
+# belirli bir satır ve belirli bir sütun
+print(df.loc[:, ["isim", "maas"]])
+
+print(df.loc[:2, ["isim", "maas"]]) # 2 dahil olur 
+
+# koşullu filtreleme
+filtre = df["yas"] > 30
+print(filtre)
+"""
+0    False
+1    False
+2    False
+3     True
+4    False
+"""
+sonuc = df[filtre]
+print(sonuc)
+
+print(df[df["yas"] > 30])
+
+# birden fazla koşul varsa
+# şehir ankara ve maas 6000 den büyük olan insaları getir
+sonuc = df[(df["sehir"] == "Ankara") & (df["maas"] > 6000)]
+print(sonuc)
+
+# belirli bir değeri içeren satılar
+print(df[df["sehir"] == "Ankara"])
+
+# sadece belirli sütunları gösterme
+# yaşı 25 den büyük olan verinin sadece isim ve maaşını göster
+print(df[df["yas"] > 25][["isim", "maas"]])
+
+
+"""
+Sütun ve satır işlemleri
+"""
+
+# dataframe oluştur
+veri = {
+    "isim": ["ali", "ayse", "mehmet"],
+    "yas": [25, 30, 28],
+    "maas": [5000, 7000, 6000]
+}
+
+df = pd.DataFrame(veri)
+print(df)
+
+# yeni bir sütun ekleme
+df["sehir"] = ["Ankara", "İstanbul", "İzmir"]
+print(df)
+
+# hesaplama ile sütun oluşturma
+df["yillik_maas"] = df["maas"] * 12 
+print(df)
+
+# sütun silme
+df = df.drop("maas", axis = 1)
+print(df)
+
+# sütun isim değiştirme
+df = df.rename(columns={"yillik_maas": "yillikMaas"})
+print(df)
+
+# yeni satır eklemek
+df.loc[3] = ["Zeynep", 32, "Ankara", 80000]
+print(df)
+
+# satır silme
+df = df.drop(0)
+print(df)
+
+# index değerlerini yeniden düzenleme
+df = df.reset_index(drop = True)
+print(df)
