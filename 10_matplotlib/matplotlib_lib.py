@@ -17,7 +17,7 @@ Bu bölüm ne öğreneceğiz?
     - line plot (çizgi): zaman içerisinde değişen verileri görselleştirmek için kullanırız
     - bar chart (sütun): kategorik verileri karşılaştırmak için kullanılır
     - pie chart (pasta): bir bütünün parçalarını görmek için kullanırız
-    - scatter plot (dağılım): iki değişken arasında ki ilişkiyi görmek için kullanılır
+    - scatter plot (dağılım): iki değişken arasında ki ilişkiyi görmek için kullanılır Korelasyon görselleştirmek için kullanılır 
     - subplots: birden fazla grafiği aynı anda gösterme         
 """
 
@@ -81,5 +81,37 @@ ayrim = [0.1, 0, 0, 0]
 renkler = ["red", "blue", "green", "orange"]
 plt.pie(degerler, labels = etiketler, explode = ayrim, autopct="%1.1f%%", colors = renkler)
 plt.title("Programlama Dili Kullanımı")
+plt.show()
+
+"""
+dağılım grafiği (scatter plot)
+"""
+""" Korelasyon görselleştirmek için kullanılır."""
+
+calisma_saatleri = [1, 2, 3, 4, 5, 6]
+notlar = [50, 55, 65, 70, 80, 90]
+
+# plt.scatter = dağılım grafiği oluştur
+# (x = calisma_saatleri, y = notlar)
+# s = nokta boyutunu değiştirme
+plt.scatter(calisma_saatleri, notlar, color = "red", s = 100)
+plt.title("Çalışma Süresi ve Sınav Notu")
+plt.xlabel("Çalışma Saatleri")
+plt.ylabel("Notlar")
+plt.show()
+
+# birden fazla veri grubu çizdirme
+
+# fen sonuçları
+x1 = [1, 2, 3, 4]
+y1 = [50, 60, 70, 80]
+
+# mat sonuçları
+x2 = [1, 2, 3, 4]
+y2 = [55, 65, 75, 85]
+
+plt.scatter(x1, x2, color ="blue", label = "fen")
+plt.scatter(x2, y2, color = "red", label = "mat")
+plt.legend() #mavi ve kırmızının ne anlama geldiğini grafik üzerinde görebiliriz
 plt.show()
 
