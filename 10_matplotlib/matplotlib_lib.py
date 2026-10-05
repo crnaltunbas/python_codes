@@ -23,3 +23,23 @@ Bu bölüm ne öğreneceğiz?
 
 import matplotlib.pyplot as plt
 print("done")
+
+
+"""
+line plot
+"""
+
+# çizgi grafiği oluşturma
+gunler = [1, 2, 3, 4, 5]
+sicaklik = [22, 24, 23, 25, 27]
+
+# (x = gunler, y = sicaklik)
+# color = renk değiştirme
+# linestyle = çizgi stilini değiştirme
+# marker = noktaları gösterme
+plt.plot(gunler, sicaklik, color = "red", linestyle = "--", marker = "o")
+plt.title("Günlere Göre Sıcaklık") # grafik başlığı
+plt.xlabel("Günler") # x ekseni etiketi
+plt.ylabel("Sıcaklık") # y ekseni etiketi
+plt.grid(True) # alttaki kareli kısmı sağlar 
+plt.show() # grafiğin ekranda görünmesini sağlar
