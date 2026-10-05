@@ -64,3 +64,22 @@ plt.show()
 # yatay sütun grafiği
 plt.barh(isimler, notlar)
 plt.show()
+
+"""
+pie chart
+"""
+etiketler = ["python", "java", "c++", "javascript"]
+degerler = [40, 25, 20, 15]
+
+# plt.pie = pasta grafiği
+# değerler = pasta dilimlerinin büyüklüğü
+# labels = her dilimin etiketi
+# autopct yüzdeliklerini gösterir
+# %1.1f%% = yüzdeyi 1 basamaklı ondalık ile gösterir
+# explode dilimlerin ayrılmasına yardımcı olur 
+ayrim = [0.1, 0, 0, 0]
+renkler = ["red", "blue", "green", "orange"]
+plt.pie(degerler, labels = etiketler, explode = ayrim, autopct="%1.1f%%", colors = renkler)
+plt.title("Programlama Dili Kullanımı")
+plt.show()
+
