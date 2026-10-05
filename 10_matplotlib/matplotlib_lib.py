@@ -43,3 +43,24 @@ plt.xlabel("Günler") # x ekseni etiketi
 plt.ylabel("Sıcaklık") # y ekseni etiketi
 plt.grid(True) # alttaki kareli kısmı sağlar 
 plt.show() # grafiğin ekranda görünmesini sağlar
+
+"""
+sütun grafikleri (bar charts)
+"""
+
+# sütun grafiği oluştur
+isimler = ["ali", "ayse", "mehmet", "zeynep"]
+notlar = [70, 85, 60, 90]
+
+# plt.bar = sütun grafiği oluşturmak için
+# (x = isimler, y = notlar) 
+renkler = ["red", "blue", "green", "orange"]
+plt.bar(isimler, notlar, color = renkler)
+plt.title("Öğrenci Notları")
+plt.xlabel("Öğrenciler")
+plt.ylabel("Notlar")
+plt.show()
+
+# yatay sütun grafiği
+plt.barh(isimler, notlar)
+plt.show()
